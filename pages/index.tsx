@@ -60,11 +60,13 @@ export default function Home() {
         )}
       </div>
       <div>
-        <img
-          src="https://csgobooks.com/wp-content/uploads/play2x.png"
-          alt="image"
-          className="w-[90%] h-[90%]"
-        />
+        <picture>
+          <img
+            src="https://csgobooks.com/wp-content/uploads/play2x.png"
+            alt="image"
+            className="w-[90%] h-[90%]"
+          />
+        </picture>
       </div>
       {openAuth && <Login />}
     </div>
