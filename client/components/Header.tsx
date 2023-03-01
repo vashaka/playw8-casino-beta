@@ -20,119 +20,144 @@ const Header = () => {
 
   return (
     <div
-      className="p-4 flex justify-between items-center bg-black"
+      className="z-20"
       style={{
-        whiteSpace: "nowrap",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        margin: "auto",
+        width: "100%",
+        // borderBottom: "0.5px solid hsl(0, 0%, 88%)",
       }}
     >
-      <div className="flex items-center">
-        <div className="w-[180px]">
-          <Image
-            src={Logo}
-            alt="image"
-            className=""
-            width={100}
-            height={0}
-            layout="responsive"
-            placeholder="blur"
-          />
+      <div
+        className="p-4 flex justify-between items-center bg-black"
+        style={{
+          whiteSpace: "nowrap",
+        }}
+      >
+        <div className="flex items-center">
+          <div className="w-[180px]">
+            <Image
+              src={Logo}
+              alt="image"
+              className=""
+              width={100}
+              height={0}
+              layout="responsive"
+              placeholder="blur"
+            />
+          </div>
+          <div className="flex items-center px-2 text-sm">
+            <div className="w-[40px] mx-4">
+              <Image
+                src={whiteList}
+                alt="image"
+                className=""
+                width={100}
+                height={0}
+                layout="responsive"
+                placeholder="blur"
+              />
+            </div>
+            <div className="w-[40px] mx-4">
+              <Image
+                src={Discord}
+                alt="image"
+                className=""
+                width={100}
+                height={0}
+                layout="responsive"
+                placeholder="blur"
+              />
+            </div>
+            <div className="w-[40px] mx-4">
+              <Image
+                src={Twitt}
+                alt="image"
+                className=""
+                width={100}
+                height={0}
+                layout="responsive"
+                placeholder="blur"
+              />
+            </div>
+          </div>
         </div>
-        <div className="flex items-center px-2 text-sm">
-          <div className="w-[40px] mx-4">
-            <Image
-              src={whiteList}
-              alt="image"
-              className=""
-              width={100}
-              height={0}
-              layout="responsive"
-              placeholder="blur"
-            />
-          </div>
-          <div className="w-[40px] mx-4">
-            <Image
-              src={Discord}
-              alt="image"
-              className=""
-              width={100}
-              height={0}
-              layout="responsive"
-              placeholder="blur"
-            />
-          </div>
-          <div className="w-[40px] mx-4">
-            <Image
-              src={Twitt}
-              alt="image"
-              className=""
-              width={100}
-              height={0}
-              layout="responsive"
-              placeholder="blur"
-            />
-          </div>
-        </div>
-      </div>
-      <div className="">
-        {/* <button
+        <div className="">
+          {/* <button
           onClick={() => setOpenAuth(true)}
           className="mr-2 text-[#828f9a] bg-[#20242d] px-6 py-2 rounded-sm border text-sm border-[hsla(0,0%,100%,.08)]"
         >
           Log in
         </button> */}
-        {!user ? (
-          <div
-            className="flex items-center cursor-pointer"
-            onClick={() => setOpenAuth(true)}
-          >
-            <div className="mx-2 w-[100px]">
-              <Image
-                src={signUp}
-                alt="image"
-                className=""
-                width={300}
-                height={300}
-                layout="responsive"
-                placeholder="blur"
-              />
+          {!user ? (
+            <div
+              className="flex items-center cursor-pointer"
+              onClick={() => setOpenAuth(true)}
+            >
+              <div className="mx-2 w-[100px]">
+                <Image
+                  src={signUp}
+                  alt="image"
+                  className=""
+                  width={300}
+                  height={300}
+                  layout="responsive"
+                  placeholder="blur"
+                />
+              </div>
+              <div className="mx-2">
+                <Image
+                  src={stick}
+                  alt="image"
+                  className=""
+                  width={100}
+                  height={0}
+                  layout="responsive"
+                  placeholder="blur"
+                />
+              </div>
+              <div className="mx-2 w-[80px]">
+                <Image
+                  src={logIn}
+                  alt="image"
+                  className=""
+                  width={100}
+                  height={0}
+                  layout="responsive"
+                  placeholder="blur"
+                />
+              </div>
+              <div className="mx-4 w-[50px]">
+                <Image
+                  src={prof}
+                  alt="image"
+                  className=""
+                  width={100}
+                  height={0}
+                  layout="responsive"
+                  placeholder="blur"
+                />
+              </div>
             </div>
-            <div className="mx-2">
-              <Image
-                src={stick}
-                alt="image"
-                className=""
-                width={100}
-                height={0}
-                layout="responsive"
-                placeholder="blur"
-              />
+          ) : (
+            <div className="flex items-center">
+              <p className="text-white">{user.email.slice(0, 12)}...</p>
+              <div className="mx-4 w-[50px]">
+                <Image
+                  src={prof}
+                  alt="image"
+                  className=""
+                  width={100}
+                  height={0}
+                  layout="responsive"
+                  placeholder="blur"
+                />
+              </div>
             </div>
-            <div className="mx-2 w-[80px]">
-              <Image
-                src={logIn}
-                alt="image"
-                className=""
-                width={100}
-                height={0}
-                layout="responsive"
-                placeholder="blur"
-              />
-            </div>
-            <div className="mx-4 w-[50px]">
-              <Image
-                src={prof}
-                alt="image"
-                className=""
-                width={100}
-                height={0}
-                layout="responsive"
-                placeholder="blur"
-              />
-            </div>
-          </div>
-        ) : (
-          <p className="text-white">{user.email.slice(0, 12)}...</p>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );

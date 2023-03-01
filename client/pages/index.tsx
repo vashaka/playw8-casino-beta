@@ -74,7 +74,7 @@ export default function Home() {
     <>
       {/* <div className=""> */}
       <div className="mx-12">
-        <div className="bg-black rounded-3xl relative z-10 h-[270px]">
+        <div className="bg-black rounded-3xl relative z-10 h-[270px] w-full">
           <div className="w-[240px] mx-8 pt-8">
             <Image
               src={ab}
@@ -95,21 +95,30 @@ export default function Home() {
               placeholder="blur"
             />
           </div>
-        <div className="mx-2 w-[10px] absolute top-0 pt-4 left-[20rem]">
-          <Image
-            src={stick}
-            alt="image"
-            className=""
-            width={100}
-            height={0}
-            layout="responsive"
-            placeholder="blur"
-          />
-        </div>
-        <div className="ml-[25rem] mx-2 absolute top-0 pt-4 max-w-[850px] min-w-[200px] h-2">
-          <h2 className="text-sm lg:text-xl">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in </h2>
-        </div>
-          <div className="w-[240px] mx-8 pt-4 right-0 absolute top-0 hidden 2xl:flex">
+          <div className="mx-2 w-[10px] absolute top-0 pt-4 left-[20rem]">
+            <Image
+              src={stick}
+              alt="image"
+              className=""
+              width={100}
+              height={0}
+              layout="responsive"
+              placeholder="blur"
+            />
+          </div>
+          <div className="w-full lg:w-[70%] relative mt-[-220px] h-[245px] overflow-hidden">
+            <div className="ml-[25rem] mx-2 absolute top-0 pt-4 max-w-[650px] min-w-[200px] h-2">
+              <h2 className="text-sm lg:text-xl">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
+                diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+                aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
+                nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+                aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor
+                in hendrerit in{" "}
+              </h2>
+            </div>
+          </div>
+          <div className="w-[240px] mx-8 pt-4 right-0 absolute top-0 hidden lg:flex">
             <Image
               src={logo}
               alt="image"
@@ -119,10 +128,9 @@ export default function Home() {
               layout="responsive"
               placeholder="blur"
             />
-            </div>
+          </div>
         </div>
         {openAuth && <Login />}
-
       </div>
       {/* </div>
 {/* 
@@ -198,7 +206,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div> */}  
+      </div> */}
     </>
   );
 }
