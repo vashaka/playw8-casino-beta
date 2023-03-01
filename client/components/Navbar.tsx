@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="hidden md:flex fixed bg-black px-8 py-4 h-[92%] w-auto">
+    <div className="hidden md:flex fixed bg-[#0F0114] px-8 py-4 h-[92%] w-auto">
       <div>
         <svg
           xmlns="http://www.w3.org/2000/svg"

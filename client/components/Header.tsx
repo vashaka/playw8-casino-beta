@@ -31,7 +31,7 @@ const Header = () => {
       }}
     >
       <div
-        className="p-4 flex justify-between items-center bg-black"
+        className="p-4 flex justify-between items-center bg-[#0F0114]"
         style={{
           whiteSpace: "nowrap",
         }}

@@ -74,7 +74,7 @@ export default function Home() {
     <>
       {/* <div className=""> */}
       <div className="mx-12">
-        <div className="bg-black rounded-3xl relative z-10 h-[270px] w-full">
+        <div className="border-2 bg-gradient-to-r mt-[20px] from-[#0F0114] to-[#30093A] rounded-[2.5rem] relative z-10 h-[270px] w-full">
           <div className="w-[240px] mx-8 pt-8">
             <Image
               src={ab}
@@ -107,8 +107,8 @@ export default function Home() {
             />
           </div>
           <div className="w-full lg:w-[70%] relative mt-[-220px] h-[245px] overflow-hidden">
-            <div className="ml-[25rem] mx-2 absolute top-0 pt-4 max-w-[650px] min-w-[200px] h-2">
-              <h2 className="text-sm lg:text-xl">
+            <div className="ml-[25rem] mx-2 absolute top-0 pt-4 max-w-[950px] min-w-[200px] h-auto">
+              <h2 className="text-sm lg:text-lg 2xl:text-2xl">
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
                 diam nonummy nibh euismod tincidunt ut laoreet dolore magna
                 aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
@@ -118,7 +118,7 @@ export default function Home() {
               </h2>
             </div>
           </div>
-          <div className="w-[240px] mx-8 pt-4 right-0 absolute top-0 hidden lg:flex">
+          <div className="w-[240px] mx-8 pt-3 right-0 absolute top-0 hidden lg:flex">
             <Image
               src={logo}
               alt="image"
