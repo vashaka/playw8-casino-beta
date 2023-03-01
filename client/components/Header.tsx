@@ -48,7 +48,7 @@ const Header = () => {
               placeholder="blur"
             />
           </div>
-          <div className="flex items-center px-2 text-sm">
+          <div className="hidden md:flex items-center px-2 text-sm">
             <div className="w-[40px] mx-4">
               <Image
                 src={whiteList}
