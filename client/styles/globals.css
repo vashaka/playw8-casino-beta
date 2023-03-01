@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-[#242e3a];
+    @apply bg-[rgb(14,13,13)];
   }
   h1 {
     @apply text-3xl text-white;

@@ -24,10 +24,10 @@ const Login = () => {
     <>
       <div
         onClick={() => setOpenAuth(false)}
-        className="w-full h-screen bg-black opacity-70 absolute left-0 right-0 top-0 bottom-0"
+        className="w-full h-screen bg-black opacity-70 absolute left-0 right-0 top-0 bottom-0 z-50"
       ></div>
       <div
-        className={`p-6 w-full max-w-[30rem] h-auto bg-[#20242d] rounded-xl absolute top-1/2 left-1/2 ${"card"} text-center`}
+        className={`p-6 w-full max-w-[30rem] h-auto bg-[#20242d] rounded-xl absolute top-1/2 left-1/2 z-50 ${"card"} text-center`}
         style={{
           transform: "translate(-50%, -50%)",
         }}

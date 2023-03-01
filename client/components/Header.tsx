@@ -2,6 +2,16 @@ import React, { useContext } from "react";
 import { AppContext } from "../context/appContext";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Logo from "../data/Asset 2.png";
+import whiteList from "../data/Asset 3.png";
+import Discord from "../data/Asset 4.png";
+import Twitt from "../data/Asset 5.png";
+import signUp from "../data/Asset 6.png";
+import stick from "../data/Asset 7.png";
+import logIn from "../data/Asset 8.png";
+import prof from "../data/Asset 9.png";
+
+import Image from "next/image";
 
 const Header = () => {
   const router = useRouter();
@@ -10,56 +20,57 @@ const Header = () => {
 
   return (
     <div
-      className="p-4 flex justify-between items-center border-b border-[hsl(222,17%,18%)]"
+      className="p-4 flex justify-between items-center bg-black"
       style={{
         whiteSpace: "nowrap",
       }}
     >
       <div className="flex items-center">
-        <h1 className="text-3xl text-white">
-          play <span className="bg-[#4180f1] rounded-md px-1 py-0">2x</span>
-        </h1>
+        <div className="w-[180px]">
+          <Image
+            src={Logo}
+            alt="image"
+            className=""
+            width={100}
+            height={0}
+            layout="responsive"
+            placeholder="blur"
+          />
+        </div>
         <div className="flex items-center px-2 text-sm">
-          <Link
-            href={"/"}
-            className={`px-2 ${
-              url === "/"
-                ? "text-white bg-[hsl(213,23%,25%)] rounded-sm px-2 py-1"
-                : "text-[#828f9a]"
-            }`}
-          >
-            Main
-          </Link>
-          <Link
-            href={"/Referalls"}
-            className={`px-2 ${
-              url === "/Referalls"
-                ? "text-white bg-[hsl(213,23%,25%)] rounded-sm px-2 py-1"
-                : "text-[#828f9a]"
-            }`}
-          >
-            Referalls
-          </Link>
-          <Link
-            href={"/Bonuses"}
-            className={`px-2 ${
-              url === "/Bonuses"
-                ? "text-white bg-[hsl(213,23%,25%)] rounded-sm px-2 py-1"
-                : "text-[#828f9a]"
-            }`}
-          >
-            Bonuses
-          </Link>
-          <Link
-            href={"/Vip-Club"}
-            className={`px-2 ${
-              url === "/Vip-Club"
-                ? "text-white bg-[hsl(213,23%,25%)] rounded-sm px-2 py-1"
-                : "text-[#828f9a]"
-            }`}
-          >
-            Bonuses
-          </Link>
+          <div className="w-[40px] mx-4">
+            <Image
+              src={whiteList}
+              alt="image"
+              className=""
+              width={100}
+              height={0}
+              layout="responsive"
+              placeholder="blur"
+            />
+          </div>
+          <div className="w-[40px] mx-4">
+            <Image
+              src={Discord}
+              alt="image"
+              className=""
+              width={100}
+              height={0}
+              layout="responsive"
+              placeholder="blur"
+            />
+          </div>
+          <div className="w-[40px] mx-4">
+            <Image
+              src={Twitt}
+              alt="image"
+              className=""
+              width={100}
+              height={0}
+              layout="responsive"
+              placeholder="blur"
+            />
+          </div>
         </div>
       </div>
       <div className="">
@@ -70,12 +81,55 @@ const Header = () => {
           Log in
         </button> */}
         {!user ? (
-          <button
+          <div
+            className="flex items-center cursor-pointer"
             onClick={() => setOpenAuth(true)}
-            className="bg-[#4180f1] px-6 py-2 rounded-sm text-sm text-white border-[hsla(0,0%,100%,.08)]"
           >
-            Sign up
-          </button>
+            <div className="mx-2 w-[100px]">
+              <Image
+                src={signUp}
+                alt="image"
+                className=""
+                width={300}
+                height={300}
+                layout="responsive"
+                placeholder="blur"
+              />
+            </div>
+            <div className="mx-2">
+              <Image
+                src={stick}
+                alt="image"
+                className=""
+                width={100}
+                height={0}
+                layout="responsive"
+                placeholder="blur"
+              />
+            </div>
+            <div className="mx-2 w-[80px]">
+              <Image
+                src={logIn}
+                alt="image"
+                className=""
+                width={100}
+                height={0}
+                layout="responsive"
+                placeholder="blur"
+              />
+            </div>
+            <div className="mx-4 w-[50px]">
+              <Image
+                src={prof}
+                alt="image"
+                className=""
+                width={100}
+                height={0}
+                layout="responsive"
+                placeholder="blur"
+              />
+            </div>
+          </div>
         ) : (
           <p className="text-white">{user.email.slice(0, 12)}...</p>
         )}
