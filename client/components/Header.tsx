@@ -37,7 +37,10 @@ const Header = () => {
         }}
       >
         <div className="flex items-center">
-          <div className="w-[180px]">
+          <div
+            className="w-[180px] cursor-pointer "
+            onClick={() => (window.location = "/")}
+          >
             <Image
               src={Logo}
               alt="image"

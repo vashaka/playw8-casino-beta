@@ -73,7 +73,7 @@ export default function Home() {
   return (
     <>
       {/* <div className=""> */}
-      <div className="mx-12">
+      <div className="md:mx-12 md:mr-[100px]">
         <div className="border-2 bg-gradient-to-r mt-[20px] from-[#0F0114] to-[#30093A] rounded-[2.5rem] relative z-10 h-[270px] w-full">
           <div className="w-[240px] mx-8 pt-8">
             <Image

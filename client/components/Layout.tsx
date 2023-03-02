@@ -28,7 +28,7 @@ const Layout = ({ children }: any) => {
             placeholder="blur"
           />
         </div>
-        <main className="md:mx-20 py-4 w-full md:w-[95%] z-50">{children}</main>
+        <main className="md:mx-28 py-4 w-full md:w-[94%] z-50">{children}</main>
       </div>
     </div>
   );

@@ -180,14 +180,16 @@ const CasePage = () => {
 
   return (
     <>
-      <div className="z-50 relative h-full md:flex justify-center">
+      <div className="z-50 relative h-full md:flex justify-center mt-[50px]">
         {/* <div className="w-[700px] bg-[hsl(222,17%,13%)] relative flex overflow-hidden h-[200px]"> */}
         <div
           // style={{ transform: "translate(-50%, 50%)" }}
 
           className={`${styles.case} absolute md:w-[600px] max-w-[600px]`}
         >
-          <div className={`${styles.caseTop} ${isOpen ? styles.opening : ""}`}>
+          <div
+            className={`${styles.caseTop} ${isOpen ? styles.opening : ""} z-50`}
+          >
             <div className={styles.caseTitle}>Case</div>
             <button className="caseTopButton" onClick={handleClick}>
               Open Case

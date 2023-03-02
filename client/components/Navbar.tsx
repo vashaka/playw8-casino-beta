@@ -1,23 +1,35 @@
 import React from "react";
+import Image from "next/image";
+import crackIt from "../data/Asset 15.png";
+import quest from "../data/Asset 16.png";
 
 const Navbar = () => {
   return (
-    <div className="hidden md:flex fixed bg-[#0F0114] px-8 py-4 h-[92%] w-auto">
-      <div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="#828f9a"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-6 h-6 text-black"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 006 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337z"
-          />
-        </svg>
+    <div className="hidden md:flex fixed bg-[#0F0114] px-8 py-4 h-[92%] w-auto flex-col">
+      <div
+        className="pt-6 w-[60px] cursor-pointer"
+        onClick={() => (window.location = "/case")}
+      >
+        <Image
+          src={crackIt}
+          alt="image"
+          className=""
+          width={100}
+          height={0}
+          layout="responsive"
+          placeholder="blur"
+        />
+      </div>
+      <div className="pt-6 w-[60px]">
+        <Image
+          src={quest}
+          alt="image"
+          className=""
+          width={100}
+          height={0}
+          layout="responsive"
+          placeholder="blur"
+        />
       </div>
     </div>
   );
