@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-image: url("../data/Asset 11.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #141823;
+}
+
 @layer base {
   body {
     @apply bg-[rgb(14,13,13)];

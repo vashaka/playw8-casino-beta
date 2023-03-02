@@ -185,7 +185,7 @@ const CasePage = () => {
         <div
           // style={{ transform: "translate(-50%, 50%)" }}
 
-          className={`${styles.case} absolute md:w-[600px] max-w-[600px]`}
+          className={`${styles.case} absolute bg-[hsl(222,17%,13%)] md:w-[600px] max-w-[600px]`}
         >
           <div
             className={`${styles.caseTop} ${isOpen ? styles.opening : ""} z-50`}
