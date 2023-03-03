@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const PrizeOwner = require("../models/prizeOwner");
+const Prize = require("../models/prize");
 
 exports.getUser = (req, res) => {
   const userId = req.body?.userId;
@@ -9,6 +10,15 @@ exports.getUser = (req, res) => {
     })
     .catch((err) => console.log(err));
 };
+
+// exports.getPrizes = (req, res) => {
+//   Prize.find()
+//     .then((allPrize) => {
+//       res.json(allPrize);
+//       console.log(allPrize);
+//     })
+//     .catch((err) => console.log(err));
+// };
 
 exports.postLatestPrize = (req, res) => {
   const user = req.body.user;

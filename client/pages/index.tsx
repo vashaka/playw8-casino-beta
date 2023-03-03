@@ -46,6 +46,8 @@ export default function Home() {
   // const [user, setUser] = useState<any>();
 
   const router = useRouter();
+  const [prizes, setPrizes] = useState<any>();
+  // const [imageUrl, setImageUrl] = useState<any>();
 
   function signoutUser() {
     // axios
@@ -64,6 +66,16 @@ export default function Home() {
       })
       .catch((err) => console.log(err));
   }
+
+  // useEffect(() => {
+  //   axios
+  //     .get("/getPrizes")
+  //     .then((resp) => resp.data)
+  //     .then((data) => {
+  //       console.log(data[0]?.imageUrl);
+  //       setImageUrl(data[0]?.imageUrl);
+  //     });
+  // }, []);
 
   useEffect(() => {
     if (user) {
@@ -141,7 +153,6 @@ export default function Home() {
         </div>
       </div>
       {openAuth && <Login />}
-
       <div className="md:mx-12 md:mr-[80px] mt-[20px]">
         <div className="border-2 bg-[#30093a] rounded-[3.5rem] relative z-10 max-h-[470px] w-full grid grid-cols-5 grid-rows-2 px-2">
           <div
@@ -226,7 +237,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
       <div className="md:mx-12 md:mr-[80px] mt-[20px]">
         <div className="border-2 bg-[#30093a] rounded-[3.5rem] relative z-10 w-full flex-col">
           {/* <div className="lg:w-[60%] w-[90%] h-[40px] lg:mt-[-30px] m-auto">
