@@ -17,6 +17,12 @@ import logo from "../data/Asset 13.png";
 import gameLogo from "../data/Asset 17.png";
 import mainGameLogo from "../data/Asset 18.png";
 import prizes from "../data/Asset 19.png";
+import prize1 from "../data/Asset 20.png";
+import prize2 from "../data/Asset 21.png";
+import prize3 from "../data/Asset 22.png";
+import prize4 from "../data/Asset 23.png";
+import prize5 from "../data/Asset 24.png";
+import prize6 from "../data/Asset 25.png";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -76,7 +82,7 @@ export default function Home() {
   return (
     <>
       {/* <div className=""> */}
-      <div className="md:mx-12 md:mr-[100px]">
+      <div className="md:mx-12 md:mr-[80px]">
         <div className="border-2 bg-gradient-to-r mt-[20px] from-[#0F0114] to-[#30093A] rounded-[2.5rem] relative z-10 h-[270px] w-full">
           <div className="w-[240px] mx-8 pt-8">
             <Image
@@ -136,7 +142,7 @@ export default function Home() {
       </div>
       {openAuth && <Login />}
 
-      <div className="md:mx-12 md:mr-[100px] mt-[20px]">
+      <div className="md:mx-12 md:mr-[80px] mt-[20px]">
         <div className="border-2 bg-[#30093a] rounded-[3.5rem] relative z-10 max-h-[470px] w-full grid grid-cols-5 grid-rows-2 px-2">
           <div
             className="row-span-2 col-span-2 max-w-[650px] min-w-[280px] p-3 cursor-pointer"
@@ -221,9 +227,9 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="md:mx-12 md:mr-[100px] mt-[20px]">
-        <div className="border-2 bg-[#30093a] flex justify-center rounded-[3.5rem] relative z-10 h-[570px] w-full">
-          <div className="lg:w-[60%] w-[90%] lg:mt-[-30px]">
+      <div className="md:mx-12 md:mr-[80px] mt-[20px]">
+        <div className="border-2 bg-[#30093a] rounded-[3.5rem] relative z-10 w-full flex-col">
+          <div className="lg:w-[60%] w-[90%] lg:mt-[-30px] m-auto">
             <Image
               src={prizes}
               alt="image"
@@ -233,6 +239,102 @@ export default function Home() {
               layout="responsive"
               placeholder="blur"
             />
+          </div>
+          <div className="w-full px-8 pt-8">
+            <div className="bg-[#0f0114] rounded-[3rem] h-[80px] flex items-center">
+              <div className="w-[80px]">
+                <Image
+                  src={prize1}
+                  alt="image"
+                  className=""
+                  width={100}
+                  height={0}
+                  layout="responsive"
+                  placeholder="blur"
+                />
+              </div>
+              <h1 className="m-auto text-6xl">PRIZE</h1>
+            </div>
+          </div>
+          <div className="w-full px-8 pt-8">
+            <div className=" bg-[#989BA3] rounded-[3rem] h-[80px] flex items-center">
+              <div className="w-[80px]">
+                <Image
+                  src={prize2}
+                  alt="image"
+                  className=""
+                  width={100}
+                  height={0}
+                  layout="responsive"
+                  placeholder="blur"
+                />
+              </div>
+              <h1 className="m-auto text-6xl">PRIZE</h1>
+            </div>
+          </div>
+          <div className="w-full px-8 pt-8">
+            <div className=" bg-[#0f0114] rounded-[3rem] h-[80px] flex items-center">
+              <div className="w-[80px]">
+                <Image
+                  src={prize3}
+                  alt="image"
+                  className=""
+                  width={100}
+                  height={0}
+                  layout="responsive"
+                  placeholder="blur"
+                />
+              </div>
+              <h1 className="m-auto text-6xl">PRIZE</h1>
+            </div>
+          </div>
+          <div className="w-full px-8 pt-8">
+            <div className=" bg-[#989BA3] rounded-[3rem] h-[80px] flex items-center">
+              <div className="w-[80px]">
+                <Image
+                  src={prize4}
+                  alt="image"
+                  className=""
+                  width={100}
+                  height={0}
+                  layout="responsive"
+                  placeholder="blur"
+                />
+              </div>
+              <h1 className="m-auto text-6xl">PRIZE</h1>
+            </div>
+          </div>
+          <div className="w-full px-8 pt-8">
+            <div className=" bg-[#0f0114] rounded-[3rem] h-[80px] flex items-center">
+              <div className="w-[80px]">
+                <Image
+                  src={prize5}
+                  alt="image"
+                  className=""
+                  width={100}
+                  height={0}
+                  layout="responsive"
+                  placeholder="blur"
+                />
+              </div>
+              <h1 className="m-auto text-6xl">PRIZE</h1>
+            </div>
+          </div>
+          <div className="w-full px-8 pt-8 pb-8">
+            <div className=" bg-[#989BA3] rounded-[3rem] h-[80px] flex items-center">
+              <div className="w-[80px]">
+                <Image
+                  src={prize6}
+                  alt="image"
+                  className=""
+                  width={100}
+                  height={0}
+                  layout="responsive"
+                  placeholder="blur"
+                />
+              </div>
+              <h1 className="m-auto text-6xl">PRIZE</h1>
+            </div>
           </div>
         </div>
       </div>
