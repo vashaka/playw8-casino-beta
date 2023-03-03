@@ -4,36 +4,57 @@ import styles from "../styles/CaseOpening.module.css";
 import { AppContext } from "../context/appContext";
 import Login from "@/components/Login";
 import axios from "axios";
+import Image from "next/image";
+
+import prize1 from "../data/Asset 20.png";
+import prize2 from "../data/Asset 21.png";
+import prize3 from "../data/Asset 22.png";
+import prize4 from "../data/Asset 23.png";
+import prize5 from "../data/Asset 24.png";
+import prize6 from "../data/Asset 25.png";
 
 const data = [
   {
     id: 1,
-    title: "biggest prize",
-    imageUrl:
-      "https://www.csgodatabase.com/images/skins/webp/CZ75-Auto_Victoria.webp",
+    title: "sol cards",
+    imageUrl: prize1,
     // weight: 1,
     percentage: 10,
   },
   {
     id: 2,
-    title: "2nd prize",
-    imageUrl: "https://www.csgodatabase.com/images/skins/webp/AWP_Asiimov.webp",
+    title: "solana",
+    imageUrl: prize2,
     // weight: 3,
     percentage: 20,
   },
   {
     id: 3,
-    title: "3rd prize",
-    imageUrl: "https://www.csgodatabase.com/images/skins/webp/AWP_Asiimov.webp",
+    title: "dog Icon",
+    imageUrl: prize3,
     // weight: 5,
     percentage: 20,
   },
   {
     id: 4,
     title: "nothing",
-    imageUrl: "https://www.csgodatabase.com/images/skins/wep/AWP_Asiimov.webp",
+    imageUrl: prize4,
     // weight: 10,
-    percentage: 75,
+    percentage: 60,
+  },
+  {
+    id: 5,
+    title: "5$ card",
+    imageUrl: prize5,
+    // weight: 10,
+    percentage: 25,
+  },
+  {
+    id: 6,
+    title: "online course",
+    imageUrl: prize6,
+    // weight: 10,
+    percentage: 25,
   },
 
   // Add more items as needed
@@ -51,10 +72,9 @@ const CasePage = () => {
   useEffect(() => {
     const getLatestClick = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:3001/api/button-click/latest",
-          { params: { userId: user?.id } }
-        );
+        const response = await axios.get("/api/button-click/latest", {
+          params: { userId: user?.id },
+        });
         if (response.status === 200) {
           const lastClick = new Date(response.data.timestamp);
           if (new Date() - lastClick >= 24 * 60 * 60 * 1000) {
@@ -80,7 +100,7 @@ const CasePage = () => {
   useEffect(() => {
     if (selectedItem) {
       axios
-        .patch("http://localhost:3001/postPrize", {
+        .patch("/postPrize", {
           user: mongodbUser,
           prize: selectedItem,
         })
@@ -94,7 +114,7 @@ const CasePage = () => {
 
   useEffect(() => {
     axios
-      .post("http://localhost:3001/postLatestPrize", {
+      .post("/postLatestPrize", {
         user: mongodbUser,
       })
       .then((resp) => resp.data)
@@ -116,8 +136,8 @@ const CasePage = () => {
     } else if (!user) {
       setOpenAuth(true);
     } else if (!mongodbUser) {
-      alert("Try again");
-      window.location.reload();
+      alert("Server Error 500! Please Login Again");
+      setOpenAuth(true);
     } else if (user && !disabled) {
       // const items = data.map((d) => d.title);
       // const weights = data.map((d) => d.weight);
@@ -154,13 +174,10 @@ const CasePage = () => {
 
       const timestamp = new Date().toISOString();
       try {
-        const response = await axios.post(
-          "http://localhost:3001/api/button-click",
-          {
-            userId: user.id,
-            timestamp,
-          }
-        );
+        const response = await axios.post("/api/button-click", {
+          userId: user.id,
+          timestamp,
+        });
         if (response.status === 201) {
           setDisabled(true);
         }
@@ -199,13 +216,22 @@ const CasePage = () => {
             className={`${styles.caseBottom} ${isOpen ? styles.opening : ""}`}
           >
             {data.map((item) => (
-              <div
-                key={item.id}
-                className={`${styles.item} ${
-                  selectedItem === item.title ? styles.selected : ""
-                }`}
-                style={{ backgroundImage: `url(${item.imageUrl})` }}
-              />
+              <div className="w-[80px] m-1" key={item.title}>
+                <Image
+                  src={item.imageUrl}
+                  width={50}
+                  height={0}
+                  layout="responsive"
+                  // placeholder="blur"
+                  className="w-[80px]"
+                  alt="img"
+                  key={item.id}
+                  className={`${styles.item} ${
+                    selectedItem === item.title ? styles.selected : ""
+                  }`}
+                  // style={{ backgroundImage: `url(${item.imageUrl})` }}
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -225,6 +251,13 @@ const CasePage = () => {
               {latestWonItem.prize.map((item: any) => (
                 <span className="text-red-500"> {item} </span>
               ))}
+              <span className="text-red-500"> {selectedItem} </span>, text us in
+              discord to receive it
+            </h1>
+          )}
+          {!latestWonItem && selectedItem && user && (
+            <h1 className="text-sm">
+              Your latest won item is{" "}
               <span className="text-red-500"> {selectedItem} </span>, text us in
               discord to receive it
             </h1>

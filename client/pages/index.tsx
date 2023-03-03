@@ -49,7 +49,7 @@ export default function Home() {
 
   function signoutUser() {
     // axios
-    //   .post("http://localhost:3001/deleteUser", {
+    //   .post("/deleteUser", {
     //     user: mongodbUser,
     //   })
     //   .then(() => {
@@ -68,7 +68,7 @@ export default function Home() {
   useEffect(() => {
     if (user) {
       axios
-        .post("http://localhost:3001/postUser", {
+        .post("/postUser", {
           user: user,
         })
         .then((resp) => {

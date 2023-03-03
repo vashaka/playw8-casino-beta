@@ -21,7 +21,7 @@ export function AppContextProvider({ children }: any) {
 
     if (userId && user && !mongodbUser) {
       axios
-        .post("http://localhost:3001/getUser", {
+        .post("/getUser", {
           userId,
         })
         .then((resp) => {

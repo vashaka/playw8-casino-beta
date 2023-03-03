@@ -4,6 +4,7 @@ const authRoute = require("./routes/auth");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
+require("dotenv").config();
 
 app.use(cors());
 app.use(express.json());
@@ -60,11 +61,11 @@ app.use("/", authRoute);
 
 mongoose.set("strictQuery", false);
 mongoose
-  .connect(
-    "mongodb+srv://vashaka:Data932868@cluster0.jelk0pc.mongodb.net/?retryWrites=true&w=majority",
-    { useUnifiedTopology: true, useNewUrlParser: true }
-  )
+  .connect(process.env.MONGO_URI, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+  })
   .then(() => {
-    app.listen(3001);
+    app.listen(process.env.PORT);
   })
   .catch((err) => console.log(err));
