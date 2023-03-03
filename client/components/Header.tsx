@@ -38,7 +38,7 @@ const Header = () => {
       >
         <div className="flex items-center">
           <div
-            className="w-[180px] cursor-pointer "
+            className="w-[180px] cursor-pointer hover:scale-110 ease-in duration-300"
             onClick={() => (window.location = "/")}
           >
             <Image

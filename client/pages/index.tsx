@@ -145,7 +145,7 @@ export default function Home() {
       <div className="md:mx-12 md:mr-[80px] mt-[20px]">
         <div className="border-2 bg-[#30093a] rounded-[3.5rem] relative z-10 max-h-[470px] w-full grid grid-cols-5 grid-rows-2 px-2">
           <div
-            className="row-span-2 col-span-2 max-w-[650px] min-w-[280px] p-3 cursor-pointer"
+            className="row-span-2 col-span-2 max-w-[650px] min-w-[280px] p-3 cursor-pointer hover:scale-105 ease-in duration-300"
             onClick={() => (window.location = "/case")}
           >
             <Image

@@ -197,7 +197,7 @@ const CasePage = () => {
 
   return (
     <>
-      <div className="z-50 relative h-full md:flex justify-center mt-[50px]">
+      <div className="z-50 relative md:flex justify-center mt-[50px]">
         {/* <div className="w-[700px] bg-[hsl(222,17%,13%)] relative flex overflow-hidden h-[200px]"> */}
         <div
           // style={{ transform: "translate(-50%, 50%)" }}
@@ -212,6 +212,7 @@ const CasePage = () => {
               Open Case
             </button>
           </div>
+
           <div
             className={`${styles.caseBottom} ${isOpen ? styles.opening : ""}`}
           >

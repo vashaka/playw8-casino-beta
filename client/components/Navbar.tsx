@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <div className="hidden md:flex fixed bg-[#0F0114] px-8 py-4 h-[92%] w-auto flex-col">
       <div
-        className="pt-6 w-[60px] cursor-pointer"
+        className="pt-6 w-[60px] cursor-pointer hover:scale-110 ease-in duration-300"
         onClick={() => (window.location = "/case")}
       >
         <Image
