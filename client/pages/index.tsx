@@ -61,21 +61,20 @@ export default function Home() {
       .signOut()
       .then(() => {
         setUser(null);
-        localStorage.removeItem("ddd");
         window.location.reload();
       })
       .catch((err) => console.log(err));
   }
 
-  // useEffect(() => {
-  //   axios
-  //     .get("/getPrizes")
-  //     .then((resp) => resp.data)
-  //     .then((data) => {
-  //       console.log(data[0]?.imageUrl);
-  //       setImageUrl(data[0]?.imageUrl);
-  //     });
-  // }, []);
+  useEffect(() => {
+    axios
+      .get("/getPrizes")
+      .then((resp) => resp.data)
+      .then((data) => {
+        // console.log(data);
+        setPrizes(data);
+      });
+  }, []);
 
   useEffect(() => {
     if (user) {
@@ -237,9 +236,10 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="md:mx-12 md:mr-[80px] mt-[20px]">
-        <div className="border-2 bg-[#30093a] rounded-[3.5rem] relative z-10 w-full flex-col">
-          {/* <div className="lg:w-[60%] w-[90%] h-[40px] lg:mt-[-30px] m-auto">
+      {prizes && (
+        <div className="md:mx-12 md:mr-[80px] mt-[20px]">
+          <div className="border-2 bg-[#30093a] rounded-[3.5rem] relative z-10 w-full flex-col">
+            {/* <div className="lg:w-[60%] w-[90%] h-[40px] lg:mt-[-30px] m-auto">
             <Image
               src={prizes}
               alt="image"
@@ -250,104 +250,105 @@ export default function Home() {
               placeholder="blur"
             />
           </div> */}
-          <div className="w-full px-8 pt-8">
-            <div className="bg-[#0f0114] rounded-[3rem] h-[50px] flex items-center">
-              <div className="w-[50px]">
-                <Image
-                  src={prize1}
-                  alt="image"
-                  className=""
-                  width={100}
-                  height={0}
-                  layout="responsive"
-                  placeholder="blur"
-                />
+            <div className="w-full px-8 pt-8">
+              <div className="bg-[#0f0114] rounded-[3rem] h-[50px] flex items-center">
+                <div className="w-[50px]">
+                  <Image
+                    src={prizes[0]?.imageUrl}
+                    alt="image"
+                    className="rounded-full"
+                    width={100}
+                    height={0}
+                    layout="responsive"
+                    // placeholder="blur"
+                  />
+                </div>
+                <h1 className="m-auto ">{prizes[0].title}</h1>
               </div>
-              <h1 className="m-auto ">PRIZE</h1>
             </div>
-          </div>
-          <div className="w-full px-8 pt-8">
-            <div className=" bg-[#989BA3] rounded-[3rem] h-[50px] flex items-center">
-              <div className="w-[50px]">
-                <Image
-                  src={prize2}
-                  alt="image"
-                  className=""
-                  width={100}
-                  height={0}
-                  layout="responsive"
-                  placeholder="blur"
-                />
+            <div className="w-full px-8 pt-8">
+              <div className=" bg-[#989BA3] rounded-[3rem] h-[50px] flex items-center">
+                <div className="w-[50px]">
+                  <Image
+                    src={prizes[1]?.imageUrl}
+                    alt="image"
+                    className="rounded-full"
+                    width={100}
+                    height={0}
+                    layout="responsive"
+                    // placeholder="blur"
+                  />
+                </div>
+                <h1 className="m-auto ">{prizes[1].title}</h1>
               </div>
-              <h1 className="m-auto ">PRIZE</h1>
             </div>
-          </div>
-          <div className="w-full px-8 pt-8">
-            <div className=" bg-[#0f0114] rounded-[3rem] h-[50px] flex items-center">
-              <div className="w-[50px]">
-                <Image
-                  src={prize3}
-                  alt="image"
-                  className=""
-                  width={100}
-                  height={0}
-                  layout="responsive"
-                  placeholder="blur"
-                />
+            <div className="w-full px-8 pt-8">
+              <div className=" bg-[#0f0114] rounded-[3rem] h-[50px] flex items-center">
+                <div className="w-[50px]">
+                  <Image
+                    src={prizes[2]?.imageUrl}
+                    alt="image"
+                    className="rounded-full"
+                    width={100}
+                    height={0}
+                    layout="responsive"
+                    // placeholder="blur"
+                  />
+                </div>
+                <h1 className="m-auto ">{prizes[2].title}</h1>
               </div>
-              <h1 className="m-auto ">PRIZE</h1>
             </div>
-          </div>
-          <div className="w-full px-8 pt-8">
-            <div className=" bg-[#989BA3] rounded-[3rem] h-[50px] flex items-center">
-              <div className="w-[50px]">
-                <Image
-                  src={prize4}
-                  alt="image"
-                  className=""
-                  width={100}
-                  height={0}
-                  layout="responsive"
-                  placeholder="blur"
-                />
+            <div className="w-full px-8 pt-8">
+              <div className=" bg-[#989BA3] rounded-[3rem] h-[50px] flex items-center">
+                <div className="w-[50px]">
+                  <Image
+                    src={prizes[3]?.imageUrl}
+                    alt="image"
+                    className="rounded-full"
+                    width={100}
+                    height={0}
+                    layout="responsive"
+                    // placeholder="blur"
+                  />
+                </div>
+                <h1 className="m-auto ">{prizes[3].title}</h1>
               </div>
-              <h1 className="m-auto ">PRIZE</h1>
             </div>
-          </div>
-          <div className="w-full px-8 pt-8">
-            <div className=" bg-[#0f0114] rounded-[3rem] h-[50px] flex items-center">
-              <div className="w-[50px]">
-                <Image
-                  src={prize5}
-                  alt="image"
-                  className=""
-                  width={100}
-                  height={0}
-                  layout="responsive"
-                  placeholder="blur"
-                />
+            <div className="w-full px-8 pt-8">
+              <div className=" bg-[#0f0114] rounded-[3rem] h-[50px] flex items-center">
+                <div className="w-[50px]">
+                  <Image
+                    src={prizes[4]?.imageUrl}
+                    alt="image"
+                    className="rounded-full"
+                    width={100}
+                    height={0}
+                    layout="responsive"
+                    // placeholder="blur"
+                  />
+                </div>
+                <h1 className="m-auto ">{prizes[4].title}</h1>
               </div>
-              <h1 className="m-auto ">PRIZE</h1>
             </div>
-          </div>
-          <div className="w-full px-8 pt-8 pb-8">
-            <div className=" bg-[#989BA3] rounded-[3rem] h-[50px] flex items-center">
-              <div className="w-[50px]">
-                <Image
-                  src={prize6}
-                  alt="image"
-                  className=""
-                  width={100}
-                  height={0}
-                  layout="responsive"
-                  placeholder="blur"
-                />
+            <div className="w-full px-8 pt-8 pb-8">
+              <div className=" bg-[#989BA3] rounded-[3rem] h-[50px] flex items-center">
+                <div className="w-[50px]">
+                  <Image
+                    src={prizes[5]?.imageUrl}
+                    alt="image"
+                    className="rounded-full"
+                    width={100}
+                    height={0}
+                    layout="responsive"
+                    // placeholder="blur"
+                  />
+                </div>
+                <h1 className="m-auto ">{prizes[5].title}</h1>
               </div>
-              <h1 className="m-auto ">PRIZE</h1>
             </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* <div className="md:grid md:grid-cols-2 w-full z-50">
         <div className="px-7 md:px-6 m-auto text-center md:text-left">

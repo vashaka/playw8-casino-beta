@@ -7,6 +7,6 @@ router.post("/getUser", authControllers.getUser);
 // router.post("/deleteUser", authControllers.deleteUser);
 router.patch("/postPrize", authControllers.postPrize);
 router.post("/postLatestPrize", authControllers.postLatestPrize);
-// router.get("/getPrizes", authControllers.getPrizes);
+router.get("/getPrizes", authControllers.getPrizes);
 
 module.exports = router;

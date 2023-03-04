@@ -11,14 +11,14 @@ exports.getUser = (req, res) => {
     .catch((err) => console.log(err));
 };
 
-// exports.getPrizes = (req, res) => {
-//   Prize.find()
-//     .then((allPrize) => {
-//       res.json(allPrize);
-//       console.log(allPrize);
-//     })
-//     .catch((err) => console.log(err));
-// };
+exports.getPrizes = (req, res) => {
+  Prize.find()
+    .then((allPrize) => {
+      res.json(allPrize);
+      // console.log(allPrize);
+    })
+    .catch((err) => console.log(err));
+};
 
 exports.postLatestPrize = (req, res) => {
   const user = req.body.user;

@@ -36,7 +36,6 @@ export function AppContextProvider({ children }: any) {
         // value.data.user
         if (value.data?.user) {
           // console.log(value.data.user);
-          localStorage.setItem("ddd", "1");
           setUser(value.data.user);
         }
       });

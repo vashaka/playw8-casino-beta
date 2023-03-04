@@ -13,52 +13,52 @@ import prize4 from "../data/Asset 23.png";
 import prize5 from "../data/Asset 24.png";
 import prize6 from "../data/Asset 25.png";
 
-const data = [
-  {
-    id: 1,
-    title: "sol cards",
-    imageUrl: prize1,
-    // weight: 1,
-    percentage: 10,
-  },
-  {
-    id: 2,
-    title: "solana",
-    imageUrl: prize2,
-    // weight: 3,
-    percentage: 20,
-  },
-  {
-    id: 3,
-    title: "dog Icon",
-    imageUrl: prize3,
-    // weight: 5,
-    percentage: 20,
-  },
-  {
-    id: 4,
-    title: "nothing",
-    imageUrl: prize4,
-    // weight: 10,
-    percentage: 60,
-  },
-  {
-    id: 5,
-    title: "5$ card",
-    imageUrl: prize5,
-    // weight: 10,
-    percentage: 25,
-  },
-  {
-    id: 6,
-    title: "online course",
-    imageUrl: prize6,
-    // weight: 10,
-    percentage: 25,
-  },
+// const data = [
+//   {
+//     id: 1,
+//     title: "sol cards",
+//     imageUrl: prize1,
+//     // weight: 1,
+//     percentage: 10,
+//   },
+//   {
+//     id: 2,
+//     title: "solana",
+//     imageUrl: prize2,
+//     // weight: 3,
+//     percentage: 20,
+//   },
+//   {
+//     id: 3,
+//     title: "dog Icon",
+//     imageUrl: prize3,
+//     // weight: 5,
+//     percentage: 20,
+//   },
+//   {
+//     id: 4,
+//     title: "nothing",
+//     imageUrl: prize4,
+//     // weight: 10,
+//     percentage: 60,
+//   },
+//   {
+//     id: 5,
+//     title: "5$ card",
+//     imageUrl: prize5,
+//     // weight: 10,
+//     percentage: 25,
+//   },
+//   {
+//     id: 6,
+//     title: "online course",
+//     imageUrl: prize6,
+//     // weight: 10,
+//     percentage: 25,
+//   },
 
-  // Add more items as needed
-];
+//   // Add more items as needed
+// ];
 const CasePage = () => {
   const { openAuth, setOpenAuth, user, setUser, mongodbUser }: any =
     useContext(AppContext);
@@ -68,6 +68,7 @@ const CasePage = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [latestWonItem, setLatestWonItem] = useState<any>();
   const [ready, setReady] = useState(false);
+  const [prizes, setPrizes] = useState<any>();
 
   useEffect(() => {
     const getLatestClick = async () => {
@@ -106,7 +107,7 @@ const CasePage = () => {
         })
         .then((resp) => resp.data)
         .then((data) => {
-          console.log(data);
+          // console.log(data);
         })
         .catch((err) => console.log(err));
     }
@@ -119,11 +120,21 @@ const CasePage = () => {
       })
       .then((resp) => resp.data)
       .then((userDoc) => {
-        console.log(userDoc, "userDoc");
+        // console.log(userDoc, "userDoc");
         setLatestWonItem(userDoc);
       })
       .catch((err) => console.log(err));
   }, [mongodbUser]);
+
+  useEffect(() => {
+    axios
+      .get("/getPrizes")
+      .then((resp) => resp.data)
+      .then((data) => {
+        console.log(data);
+        setPrizes(data);
+      });
+  }, []);
 
   // console.log(selectedItem);
   const handleClick = async () => {
@@ -151,9 +162,11 @@ const CasePage = () => {
       //     break;
       //   }
       // }
-      const items = data.map((d) => d.title);
-      const percentages = data.map((d) => d.percentage);
-      const totalPercentage = percentages.reduce((prev, curr) => prev + curr);
+      const items = prizes.map((d: any) => d.title);
+      const percentages = prizes.map((d: any) => d.percentage);
+      const totalPercentage = percentages.reduce(
+        (prev: any, curr: any) => prev + curr
+      );
       const randomNum = Math.random() * totalPercentage;
       let percentageSum = 0;
       for (let i = 0; i < items.length; i++) {
@@ -214,15 +227,15 @@ const CasePage = () => {
           <div
             className={`${styles.caseBottom} ${isOpen ? styles.opening : ""}`}
           >
-            {data.map((item) => (
-              <div className="w-[80px] m-1" key={item.title}>
+            {prizes?.map((item: any) => (
+              <div className="w-[80px] rounded-full m-1" key={item._id}>
                 <Image
                   src={item.imageUrl}
                   width={50}
                   height={0}
                   layout="responsive"
                   // placeholder="blur"
-                  className="w-[80px]"
+                  className="w-[80px] rounded-full"
                   alt="img"
                   key={item.id}
                   className={`${styles.item} ${
@@ -248,16 +261,19 @@ const CasePage = () => {
             <h1 className="text-sm">
               Your latest won item is{" "}
               {latestWonItem.prize.map((item: any) => (
-                <span className="text-red-500"> {item} </span>
+                <span key={item._id} className="text-red-500">
+                  {" "}
+                  {item},{" "}
+                </span>
               ))}
-              <span className="text-red-500"> {selectedItem} </span>, text us in
+              <span className="text-red-500"> {selectedItem} </span> text us in
               discord to receive it
             </h1>
           )}
           {!latestWonItem && selectedItem && user && (
             <h1 className="text-sm">
               Your latest won item is{" "}
-              <span className="text-red-500"> {selectedItem} </span>, text us in
+              <span className="text-red-500"> {selectedItem} </span> text us in
               discord to receive it
             </h1>
           )}
