@@ -172,7 +172,9 @@ const CasePage = () => {
       for (let i = 0; i < items.length; i++) {
         percentageSum += percentages[i];
         if (randomNum <= percentageSum) {
-          setSelectedItem(items[i]);
+          setTimeout(() => {
+            setSelectedItem(items[i]);
+          }, 2200);
           break;
         }
       }
@@ -228,21 +230,49 @@ const CasePage = () => {
             className={`${styles.caseBottom} ${isOpen ? styles.opening : ""}`}
           >
             {prizes?.map((item: any) => (
-              <div className="w-[80px] rounded-full m-1" key={item._id}>
-                <Image
-                  src={item.imageUrl}
-                  width={50}
-                  height={0}
-                  layout="responsive"
-                  // placeholder="blur"
-                  className="w-[80px] rounded-full"
-                  alt="img"
-                  key={item.id}
-                  className={`${styles.item} ${
-                    selectedItem === item.title ? styles.selected : ""
-                  }`}
-                  // style={{ backgroundImage: `url(${item.imageUrl})` }}
-                />
+              <div
+                className="w-[95px] rounded-full flex justify-center"
+                key={item._id}
+              >
+                {selectedItem === item.title ? (
+                  <div className="absolute w-[125px] left-0 right-0 m-auto bottom-[150px]">
+                    <Image
+                      src={item.imageUrl}
+                      width={50}
+                      height={0}
+                      layout="responsive"
+                      // placeholder="blur"
+                      className="w-[125px] rounded-full"
+                      alt="img"
+                      key={item.id}
+                      className={`${styles.item} ${
+                        selectedItem === item.title ? styles.selected : ""
+                      }`}
+                      // className={`${styles.item}`}
+
+                      // style={{ backgroundImage: `url(${item.imageUrl})` }}
+                    />
+                  </div>
+                ) : (
+                  !selectedItem && (
+                    <Image
+                      src={item.imageUrl}
+                      width={50}
+                      height={0}
+                      layout="responsive"
+                      // placeholder="blur"
+                      className="w-[95px] rounded-full"
+                      alt="img"
+                      key={item.id}
+                      className={`${styles.item} ${
+                        selectedItem === item.title ? styles.selected : ""
+                      }`}
+                      // className={`${styles.item}`}
+
+                      // style={{ backgroundImage: `url(${item.imageUrl})` }}
+                    />
+                  )
+                )}
               </div>
             ))}
           </div>
