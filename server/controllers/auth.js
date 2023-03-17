@@ -8,16 +8,19 @@ exports.getUser = (req, res) => {
     .then((user) => {
       res.json(user);
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      // console.log(err)
+    });
 };
 
 exports.getPrizes = (req, res) => {
   Prize.find()
     .then((allPrize) => {
       res.json(allPrize);
-      // console.log(allPrize);
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      // console.log(err)
+    });
 };
 
 exports.postLatestPrize = (req, res) => {
@@ -40,7 +43,7 @@ exports.postUser = (req, res) => {
           res.json(userDoc);
           User.deleteOne({ userDoc }, (err) => {
             if (err) {
-              console.log(err);
+              // console.log(err);
             } else {
               // console.log("no err");
             }
@@ -78,11 +81,9 @@ exports.postPrize = (req, res) => {
   ).then((userDoc) => {
     if (userDoc) {
       res.json(userDoc);
-      console.log("user found");
     } else {
       const newPrizeOwner = new PrizeOwner({ user: user, prize });
       newPrizeOwner.save().then(() => {
-        console.log("prize Owner saved");
         res.json(newPrizeOwner);
       });
     }

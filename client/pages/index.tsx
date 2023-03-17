@@ -23,6 +23,7 @@ import prize3 from "../data/Asset 22.png";
 import prize4 from "../data/Asset 23.png";
 import prize5 from "../data/Asset 24.png";
 import prize6 from "../data/Asset 25.png";
+import VideoPlayer from "@/components/VideoPlayer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -90,8 +91,11 @@ export default function Home() {
       return;
     }
   }, [user]);
+
   return (
     <>
+
+
       {/* <div className=""> */}
       <div className="md:mx-12 md:mr-[80px]">
         <div className="border-2 bg-gradient-to-r mt-[20px] from-[#0F0114] to-[#30093A] rounded-[2.5rem] relative z-10 h-[270px] w-full">

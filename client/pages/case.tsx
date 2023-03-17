@@ -131,7 +131,6 @@ const CasePage = () => {
       .get("/getPrizes")
       .then((resp) => resp.data)
       .then((data) => {
-        console.log(data);
         setPrizes(data);
       });
   }, []);
@@ -242,16 +241,18 @@ const CasePage = () => {
                       height={0}
                       layout="responsive"
                       // placeholder="blur"
-                      className="w-[125px] rounded-full"
                       alt="img"
                       key={item.id}
-                      className={`${styles.item} ${
+                      className={`w-[125px] rounded-full ${styles.item} ${
                         selectedItem === item.title ? styles.selected : ""
                       }`}
                       // className={`${styles.item}`}
 
                       // style={{ backgroundImage: `url(${item.imageUrl})` }}
                     />
+                    {/* <video width="640" height="360" autoPlay muted>
+                      <source src="/videos/my-video.mp4" type="video/mp4" />
+                    </video> */}
                   </div>
                 ) : (
                   !selectedItem && (
@@ -261,10 +262,9 @@ const CasePage = () => {
                       height={0}
                       layout="responsive"
                       // placeholder="blur"
-                      className="w-[95px] rounded-full"
                       alt="img"
                       key={item.id}
-                      className={`${styles.item} ${
+                      className={`w-[95px] rounded-full ${styles.item} ${
                         selectedItem === item.title ? styles.selected : ""
                       }`}
                       // className={`${styles.item}`}
