@@ -12,6 +12,8 @@ import prize3 from "../data/Asset 22.png";
 import prize4 from "../data/Asset 23.png";
 import prize5 from "../data/Asset 24.png";
 import prize6 from "../data/Asset 25.png";
+import brain from "../data/brain.png";
+import Timer from "../components/Timer";
 
 // const data = [
 //   {
@@ -69,6 +71,17 @@ const CasePage = () => {
   const [latestWonItem, setLatestWonItem] = useState<any>();
   const [ready, setReady] = useState(false);
   const [prizes, setPrizes] = useState<any>();
+  const [seconds, setSeconds] = useState(0);
+  const [clicked, setClicked] = useState(false);
+
+  useEffect(() => {
+    if (seconds > 0) {
+      const intervalId = setInterval(() => {
+        setSeconds(seconds - 1);
+      }, 1000);
+      return () => clearInterval(intervalId);
+    }
+  }, [seconds]);
 
   useEffect(() => {
     const getLatestClick = async () => {
@@ -149,6 +162,8 @@ const CasePage = () => {
       alert("Server Error 500! Please Login Again");
       setOpenAuth(true);
     } else if (user && !disabled) {
+      setClicked(true);
+      setSeconds(5);
       // const items = data.map((d) => d.title);
       // const weights = data.map((d) => d.weight);
       // const totalWeight = weights.reduce((prev, curr) => prev + curr);
@@ -161,8 +176,9 @@ const CasePage = () => {
       //     break;
       //   }
       // }
-      const items = prizes.map((d: any) => d.title);
-      const percentages = prizes.map((d: any) => d.percentage);
+      const items = prizes?.map((d: any) => d.title);
+      const percentages = prizes?.map((d: any) => d.percentage);
+      console.log(percentages);
       const totalPercentage = percentages.reduce(
         (prev: any, curr: any) => prev + curr
       );
@@ -173,18 +189,19 @@ const CasePage = () => {
         if (randomNum <= percentageSum) {
           setTimeout(() => {
             setSelectedItem(items[i]);
-          }, 2200);
+          }, 4200);
           break;
         }
       }
       // const index = Math.floor(Math.random() * items.length);
       // alert(index);
       // setSelectedItem(items[index]);
-
-      setIsOpen(true);
+      setTimeout(() => {
+        setIsOpen(true);
+      }, 2000);
       setTimeout(() => {
         setIsOpen(false);
-      }, 3000);
+      }, 5000);
 
       const timestamp = new Date().toISOString();
       try {
@@ -216,10 +233,45 @@ const CasePage = () => {
         <div
           // style={{ transform: "translate(-50%, 50%)" }}
 
-          className={`${styles.case} absolute bg-[hsl(222,17%,13%)] md:w-[600px] max-w-[600px]`}
+          className={`${styles.case} relative bg-[#30093A] md:w-[600px] max-w-[600px]`}
         >
+          {!clicked ? (
+            <Image
+              src={brain}
+              width="640"
+              height="360"
+              layout="responsive"
+              // placeholder="blur"
+              alt="img"
+              className="absolute h-full w-full top-0 bottom-0 scale-100"
+
+              // className={`w-[125px] rounded-full ${styles.item} ${
+              //   selectedItem === item.title ? styles.selected : ""
+              // }`}
+              // className={`${styles.item}`}
+
+              // style={{ backgroundImage: `url(${item.imageUrl})` }}
+            />
+          ) : (
+            // )
+            <video
+              width="640"
+              className="absolute h-full w-full top-0 bottom-0 scale-150"
+              height="360"
+              autoPlay
+              muted
+            >
+              <source
+                src="/videos/kakali_logo.mp4"
+                className=""
+                type="video/mp4"
+              />
+            </video>
+          )}
           <div className={`${styles.caseTop} ${isOpen ? styles.opening : ""}`}>
             <div className={styles.caseTitle}>Case</div>
+            <div>{seconds === 0 ? <p>{selectedItem}</p> : `0:0${seconds}`}</div>
+
             <button className="caseTopButton" onClick={handleClick}>
               Open Case
             </button>
@@ -234,8 +286,8 @@ const CasePage = () => {
                 key={item._id}
               >
                 {selectedItem === item.title ? (
-                  <div className="absolute w-[125px] left-0 right-0 m-auto bottom-[150px]">
-                    <Image
+                  <div className="absolute w-[185px] left-0 right-0 m-auto bottom-[220px]">
+                    {/* <Image
                       src={item.imageUrl}
                       width={50}
                       height={0}
@@ -249,29 +301,40 @@ const CasePage = () => {
                       // className={`${styles.item}`}
 
                       // style={{ backgroundImage: `url(${item.imageUrl})` }}
-                    />
-                    {/* <video width="640" height="360" autoPlay muted>
-                      <source src="/videos/my-video.mp4" type="video/mp4" />
-                    </video> */}
+                    /> */}
+                    <video
+                      width="640"
+                      className="rounded-full"
+                      height="360"
+                      autoPlay
+                      muted
+                    >
+                      <source src="/videos/cards.mp4" type="video/mp4" />
+                    </video>
                   </div>
                 ) : (
-                  !selectedItem && (
-                    <Image
-                      src={item.imageUrl}
-                      width={50}
-                      height={0}
-                      layout="responsive"
-                      // placeholder="blur"
-                      alt="img"
-                      key={item.id}
-                      className={`w-[95px] rounded-full ${styles.item} ${
-                        selectedItem === item.title ? styles.selected : ""
-                      }`}
-                      // className={`${styles.item}`}
+                  <></>
+                  // !selectedItem &&
+                  // clicked &&
+                  // isOpen && false && (
+                  //   <div className="mb-[150px]">
+                  //     <Image
+                  //       src={item.imageUrl}
+                  //       width={50}
+                  //       height={0}
+                  //       layout="responsive"
+                  //       // placeholder="blur"
+                  //       alt="img"
+                  //       key={item.id}
+                  //       className={`w-[95px] rounded-full ${styles.item} ${
+                  //         selectedItem === item.title ? styles.selected : ""
+                  //       }`}
+                  //       // className={`${styles.item}`}
 
-                      // style={{ backgroundImage: `url(${item.imageUrl})` }}
-                    />
-                  )
+                  //       // style={{ backgroundImage: `url(${item.imageUrl})` }}
+                  //     />
+                  //   </div>
+                  // )
                 )}
               </div>
             ))}
@@ -281,13 +344,15 @@ const CasePage = () => {
           style={{
             whiteSpace: "nowrap",
           }}
-          className="absolute -bottom-40 text-center text-red-400"
+          className="absolute -bottom-36 text-center text-red-400"
         >
-          {errorMessage && <p>{errorMessage}</p>}
-          <button className="caseTopButton mt-4 mb-4">
+          {errorMessage && (
+            <h3 className="text-bold text-red-400">{errorMessage}</h3>
+          )}
+          <button className="caseTopButton mt-4 mb-4 hover:scale-110">
             Contact us on Discord
           </button>
-          {latestWonItem && user && (
+          {/* {latestWonItem && user && (
             <h1 className="text-sm">
               Your latest won item is{" "}
               {latestWonItem.prize.map((item: any) => (
@@ -306,12 +371,13 @@ const CasePage = () => {
               <span className="text-red-500"> {selectedItem} </span> text us in
               discord to receive it
             </h1>
-          )}
-          <h2>text us on discord to receive prize</h2>
+          )} */}
+          {selectedItem && <h2>text us on discord to receive prize</h2>}
         </div>
 
         {/* </div> */}
       </div>
+
       {openAuth && <Login />}
     </>
   );
