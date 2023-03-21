@@ -1,73 +1,18 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
-import CryptoJS from "crypto-js";
+import React, { useState, useEffect, useContext } from "react";
 import styles from "../styles/CaseOpening.module.css";
 import { AppContext } from "../context/appContext";
 import Login from "@/components/Login";
 import axios from "axios";
 import Image from "next/image";
-
-import prize1 from "../data/Asset 20.png";
-import prize2 from "../data/Asset 21.png";
-import prize3 from "../data/Asset 22.png";
-import prize4 from "../data/Asset 23.png";
-import prize5 from "../data/Asset 24.png";
-import prize6 from "../data/Asset 25.png";
 import brain from "../data/brain.png";
-import Timer from "../components/Timer";
 
-// const data = [
-//   {
-//     id: 1,
-//     title: "sol cards",
-//     imageUrl: prize1,
-//     // weight: 1,
-//     percentage: 10,
-//   },
-//   {
-//     id: 2,
-//     title: "solana",
-//     imageUrl: prize2,
-//     // weight: 3,
-//     percentage: 20,
-//   },
-//   {
-//     id: 3,
-//     title: "dog Icon",
-//     imageUrl: prize3,
-//     // weight: 5,
-//     percentage: 20,
-//   },
-//   {
-//     id: 4,
-//     title: "nothing",
-//     imageUrl: prize4,
-//     // weight: 10,
-//     percentage: 60,
-//   },
-//   {
-//     id: 5,
-//     title: "5$ card",
-//     imageUrl: prize5,
-//     // weight: 10,
-//     percentage: 25,
-//   },
-//   {
-//     id: 6,
-//     title: "online course",
-//     imageUrl: prize6,
-//     // weight: 10,
-//     percentage: 25,
-//   },
-
-//   // Add more items as needed
-// ];
 const CasePage = () => {
   const { openAuth, setOpenAuth, user, setUser, mongodbUser }: any =
     useContext(AppContext);
   const [selectedItem, setSelectedItem] = useState<null | string | any>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [disabled, setDisabled] = useState(true);
-  const [errorMessage, setErrorMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState<any>(null);
   const [latestWonItem, setLatestWonItem] = useState<any>();
   const [ready, setReady] = useState(false);
   const [prizes, setPrizes] = useState<any>();
@@ -90,8 +35,9 @@ const CasePage = () => {
           params: { userId: user?.id },
         });
         if (response.status === 200) {
-          const lastClick = new Date(response.data.timestamp);
-          if (new Date() - lastClick >= 24 * 60 * 60 * 1000) {
+          const lastClick: any = new Date(response.data.timestamp);
+          const newDate: any = new Date();
+          if (newDate - lastClick >= 24 * 60 * 60 * 1000) {
             setDisabled(false);
           } else {
             setErrorMessage(
@@ -164,18 +110,6 @@ const CasePage = () => {
     } else if (user && !disabled) {
       setClicked(true);
       setSeconds(5);
-      // const items = data.map((d) => d.title);
-      // const weights = data.map((d) => d.weight);
-      // const totalWeight = weights.reduce((prev, curr) => prev + curr);
-      // const randomNum = Math.random() * totalWeight;
-      // let weightSum = 0;
-      // for (let i = 0; i < items.length; i++) {
-      //   weightSum += weights[i];
-      //   if (randomNum <= weightSum) {
-      //     setSelectedItem(items[i]);
-      //     break;
-      //   }
-      // }
       const items = prizes?.map((d: any) => d.title);
       const percentages = prizes?.map((d: any) => d.percentage);
       console.log(percentages);
@@ -189,13 +123,12 @@ const CasePage = () => {
         if (randomNum <= percentageSum) {
           setTimeout(() => {
             setSelectedItem(items[i]);
+            localStorage.setItem("selectedItem", items[i]);
           }, 4200);
           break;
         }
       }
-      // const index = Math.floor(Math.random() * items.length);
-      // alert(index);
-      // setSelectedItem(items[index]);
+
       setTimeout(() => {
         setIsOpen(true);
       }, 2000);
@@ -214,11 +147,6 @@ const CasePage = () => {
         }
       } catch (error: any) {
         console.log(error);
-        // if (error.response.status === 403) {
-        //   setErrorMessage(error.response.data.message);
-        // } else {
-        //   console.error(error);
-        // }
       }
     } else {
       alert("Unexpected Server Error 500, Try Logging in again");
@@ -226,13 +154,16 @@ const CasePage = () => {
     }
   };
 
+  const [localData, setLocalData] = useState<any>("");
+
+  useEffect(() => {
+    setLocalData(localStorage?.getItem("selectedItem"));
+  }, []);
+
   return (
     <>
       <div className="relative md:flex justify-center mt-[50px]">
-        {/* <div className="w-[700px] bg-[hsl(222,17%,13%)] relative flex overflow-hidden h-[200px]"> */}
         <div
-          // style={{ transform: "translate(-50%, 50%)" }}
-
           className={`${styles.case} relative bg-[#30093A] md:w-[600px] max-w-[600px]`}
         >
           {!clicked ? (
@@ -269,8 +200,14 @@ const CasePage = () => {
             </video>
           )}
           <div className={`${styles.caseTop} ${isOpen ? styles.opening : ""}`}>
-            <div className={styles.caseTitle}>Case</div>
-            <div>{seconds === 0 ? <p>{selectedItem}</p> : `0:0${seconds}`}</div>
+            <div className={styles.caseTitle}>Crack it</div>
+            <div>
+              {seconds === 0 ? (
+                <p>{selectedItem ? selectedItem : localData}</p>
+              ) : (
+                `0:0${seconds}`
+              )}
+            </div>
 
             <button className="caseTopButton" onClick={handleClick}>
               Open Case
@@ -309,7 +246,7 @@ const CasePage = () => {
                       autoPlay
                       muted
                     >
-                      <source src="/videos/cards.mp4" type="video/mp4" />
+                      <source src={item.videoUrl} type="video/mp4" />
                     </video>
                   </div>
                 ) : (
