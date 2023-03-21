@@ -123,12 +123,9 @@ export default function Home() {
           <div className="w-full lg:w-[70%] relative mt-[-220px] h-[245px] overflow-hidden">
             <div className="ml-[25rem] mx-2 absolute top-0 pt-4 max-w-[950px] min-w-[200px] h-auto">
               <h2 className="text-sm lg:text-lg 2xl:text-2xl">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-                aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
-                nostrud exerci tation ullamcorper suscipit lobortis nisl ut
-                aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor
-                in hendrerit in{" "}
+                Looking for a fun and exciting way to test your skills and win
+                some amazing prizes? Look no further than our P2E leaderboard
+                games!
               </h2>
             </div>
           </div>

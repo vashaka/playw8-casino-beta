@@ -5,6 +5,8 @@ const prizeSchema = new Schema(
   {
     title: String,
     imageUrl: String,
+    videoUrl: String,
+    percentage: Number,
   },
   { timestamps: true }
 );

@@ -203,7 +203,6 @@ const CasePage = () => {
             </video>
           )}
           <div className={`${styles.caseTop} ${isOpen ? styles.opening : ""}`}>
-            <div className={styles.caseTitle}>Crack it</div>
             <div>
               {seconds === 0 ? (
                 <p>{selectedItem ? selectedItem : localData}</p>
@@ -213,7 +212,7 @@ const CasePage = () => {
             </div>
 
             <button className="caseTopButton" onClick={handleClick}>
-              Open Case
+              CRACK IT
             </button>
           </div>
 

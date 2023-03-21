@@ -52,18 +52,12 @@ const Header = () => {
             />
           </div>
           <div className="hidden md:flex items-center px-2 text-sm">
-            <div className="w-[40px] mx-4">
-              <Image
-                src={whiteList}
-                alt="image"
-                className=""
-                width={100}
-                height={0}
-                layout="responsive"
-                placeholder="blur"
-              />
-            </div>
-            <div className="w-[40px] mx-4">
+            <div
+              className="w-[40px] mx-4 hover:scale-110 cursor-pointer ease-in duration-300"
+              onClick={() =>
+                (window.location = "https://discord.gg/solcrackers")
+              }
+            >
               <Image
                 src={Discord}
                 alt="image"
@@ -74,9 +68,30 @@ const Header = () => {
                 placeholder="blur"
               />
             </div>
-            <div className="w-[40px] mx-4">
+            <div
+              className="w-[40px] mx-4 hover:scale-110 cursor-pointer ease-in duration-300"
+              onClick={() =>
+                (window.location = "https://twitter.com/SolCrackersNFT")
+              }
+            >
               <Image
                 src={Twitt}
+                alt="image"
+                className=""
+                width={100}
+                height={0}
+                layout="responsive"
+                placeholder="blur"
+              />
+            </div>
+            <div
+              className="w-[40px] mx-4 hover:scale-110 cursor-pointer ease-in duration-300"
+              onClick={() =>
+                (window.location = "https://nfts-2.gitbook.io/solcrackers/")
+              }
+            >
+              <Image
+                src={whiteList}
                 alt="image"
                 className=""
                 width={100}
