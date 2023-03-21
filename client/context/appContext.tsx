@@ -14,7 +14,7 @@ export function AppContextProvider({ children }: any) {
   const [user, setUser] = useState<any>();
   const [mongodbUser, setMongodbUser] = useState();
 
-  const [userId, setUserId] = useState();
+  const [userId, setUserId] = useState<any>();
 
   useEffect(() => {
     setUserId(localStorage.getItem("user"));
@@ -33,7 +33,6 @@ export function AppContextProvider({ children }: any) {
   useEffect(() => {
     async function getUserData() {
       await supabase.auth.getUser().then((value) => {
-        // value.data.user
         if (value.data?.user) {
           setUser(value.data.user);
         }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
 import { createClient } from "@supabase/supabase-js";
-import { Auth, ThemeSupa } from "@supabase/auth-ui-react";
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
@@ -8,22 +7,12 @@ import { useRouter } from "next/router";
 import Login from "../components/Login";
 import { AppContext } from "../context/appContext";
 import axios from "axios";
-import Link from "next/link";
-import gamePic from "../data/gamePic.png";
 import ab from "../data/Asset 12.png";
 import Logo from "../data/Asset 2.png";
 import stick from "../data/Asset 7.png";
 import logo from "../data/Asset 13.png";
 import gameLogo from "../data/Asset 17.png";
 import mainGameLogo from "../data/Asset 18.png";
-import prizes from "../data/Asset 19.png";
-import prize1 from "../data/Asset 20.png";
-import prize2 from "../data/Asset 21.png";
-import prize3 from "../data/Asset 22.png";
-import prize4 from "../data/Asset 23.png";
-import prize5 from "../data/Asset 24.png";
-import prize6 from "../data/Asset 25.png";
-import VideoPlayer from "@/components/VideoPlayer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -94,8 +83,9 @@ export default function Home() {
 
   return (
     <>
-
-
+      <Head>
+        <title>sol crackers</title>
+      </Head>
       {/* <div className=""> */}
       <div className="md:mx-12 md:mr-[80px]">
         <div className="border-2 bg-gradient-to-r mt-[20px] from-[#0F0114] to-[#30093A] rounded-[2.5rem] relative z-10 h-[270px] w-full">

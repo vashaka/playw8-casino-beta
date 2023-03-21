@@ -5,6 +5,7 @@ import Login from "@/components/Login";
 import axios from "axios";
 import Image from "next/image";
 import brain from "../data/brain.png";
+import Head from "next/head";
 
 const CasePage = () => {
   const { openAuth, setOpenAuth, user, setUser, mongodbUser }: any =
@@ -14,7 +15,6 @@ const CasePage = () => {
   const [disabled, setDisabled] = useState(true);
   const [errorMessage, setErrorMessage] = useState<any>(null);
   const [latestWonItem, setLatestWonItem] = useState<any>();
-  const [ready, setReady] = useState(false);
   const [prizes, setPrizes] = useState<any>();
   const [seconds, setSeconds] = useState(0);
   const [clicked, setClicked] = useState(false);
@@ -162,6 +162,9 @@ const CasePage = () => {
 
   return (
     <>
+      <Head>
+        <title>sol crackers - crack it</title>
+      </Head>
       <div className="relative md:flex justify-center mt-[50px]">
         <div
           className={`${styles.case} relative bg-[#30093A] md:w-[600px] max-w-[600px]`}
