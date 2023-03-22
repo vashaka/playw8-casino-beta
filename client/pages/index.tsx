@@ -232,17 +232,6 @@ export default function Home() {
       {prizes && (
         <div className="md:mx-12 md:mr-[80px] mt-[20px]">
           <div className="border-2 bg-[#30093a] rounded-[3.5rem] relative z-10 w-full flex-col">
-            {/* <div className="lg:w-[60%] w-[90%] h-[40px] lg:mt-[-30px] m-auto">
-            <Image
-              src={prizes}
-              alt="image"
-              className=""
-              width={100}
-              height={0}
-              layout="responsive"
-              placeholder="blur"
-            />
-          </div> */}
             <div className="w-full px-8 pt-8">
               <div className="bg-[#0f0114] rounded-[3rem] h-[50px] flex items-center">
                 <div className="w-[50px]">

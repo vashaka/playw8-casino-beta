@@ -282,13 +282,14 @@ const CasePage = () => {
           </div>
         </div>
         <div
-          style={{
-            whiteSpace: "nowrap",
-          }}
-          className="absolute -bottom-36 text-center text-red-400"
+          className={`absolute ${
+            selectedItem ? "-bottom-44" : "-bottom-36"
+          } text-center text-red-400`}
         >
           {errorMessage && (
-            <h3 className="text-bold text-red-400">{errorMessage}</h3>
+            <div className="glass">
+              <h3 className="text-bold text-red-400 w-auto">{errorMessage}</h3>
+            </div>
           )}
           <button
             onClick={() => (window.location = discordLink)}
