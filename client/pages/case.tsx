@@ -19,6 +19,8 @@ const CasePage = () => {
   const [seconds, setSeconds] = useState(0);
   const [clicked, setClicked] = useState(false);
 
+  const discordLink: any = "https://discord.gg/solcrackers";
+
   useEffect(() => {
     if (seconds > 0) {
       const intervalId = setInterval(() => {
@@ -288,7 +290,10 @@ const CasePage = () => {
           {errorMessage && (
             <h3 className="text-bold text-red-400">{errorMessage}</h3>
           )}
-          <button className="caseTopButton mt-4 mb-4 hover:scale-110">
+          <button
+            onClick={() => (window.location = discordLink)}
+            className="caseTopButton mt-4 mb-4 hover:scale-110"
+          >
             Contact us on Discord
           </button>
           {/* {latestWonItem && user && (

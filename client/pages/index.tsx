@@ -22,6 +22,8 @@ const supabase = createClient(
 );
 
 export default function Home() {
+  const caseLink: any = "/case";
+
   const {
     openAuth,
     setOpenAuth,
@@ -147,7 +149,7 @@ export default function Home() {
         <div className="border-2 bg-[#30093a] rounded-[3.5rem] relative z-10 max-h-[470px] w-full grid grid-cols-5 grid-rows-2 px-2">
           <div
             className="row-span-2 col-span-2 max-w-[650px] min-w-[280px] p-3 cursor-pointer hover:scale-105 ease-in duration-300"
-            onClick={() => (window.location = "/case")}
+            onClick={() => (window.location = caseLink)}
           >
             <Image
               src={mainGameLogo}
@@ -321,7 +323,7 @@ export default function Home() {
                 <h1 className="m-auto ">{prizes[4].title}</h1>
               </div>
             </div>
-            <div className="w-full px-8 pt-8 pb-8">
+            <div className="w-full px-8 pt-8">
               <div className=" bg-[#989BA3] rounded-[3rem] h-[50px] flex items-center">
                 <div className="w-[50px]">
                   <Image
@@ -335,6 +337,22 @@ export default function Home() {
                   />
                 </div>
                 <h1 className="m-auto ">{prizes[5].title}</h1>
+              </div>
+            </div>
+            <div className="w-full px-8 pt-8 pb-8">
+              <div className=" bg-[#989BA3] rounded-[3rem] h-[50px] flex items-center">
+                <div className="w-[50px]">
+                  <Image
+                    src={prizes[6]?.imageUrl}
+                    alt="image"
+                    className="rounded-full"
+                    width={100}
+                    height={0}
+                    layout="responsive"
+                    // placeholder="blur"
+                  />
+                </div>
+                <h1 className="m-auto ">{prizes[6]?.title}</h1>
               </div>
             </div>
           </div>

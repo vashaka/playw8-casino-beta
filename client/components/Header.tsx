@@ -14,6 +14,10 @@ import prof from "../data/Asset 9.png";
 import Image from "next/image";
 
 const Header = () => {
+  const main: any = "/";
+  const discordLink: any = "https://discord.gg/solcrackers";
+  const twitterLink: any = "https://twitter.com/SolCrackersNFT";
+  const whiteListLink: any = "https://nfts-2.gitbook.io/solcrackers/";
   const router = useRouter();
   const url = router.pathname;
   const { setOpenAuth, user }: any = useContext(AppContext);
@@ -39,7 +43,7 @@ const Header = () => {
         <div className="flex items-center">
           <div
             className="w-[180px] cursor-pointer hover:scale-110 ease-in duration-300"
-            onClick={() => (window.location = "/")}
+            onClick={() => (window.location = main)}
           >
             <Image
               src={Logo}
@@ -54,9 +58,7 @@ const Header = () => {
           <div className="hidden md:flex items-center px-2 text-sm">
             <div
               className="w-[40px] mx-4 hover:scale-110 cursor-pointer ease-in duration-300"
-              onClick={() =>
-                (window.location = "https://discord.gg/solcrackers")
-              }
+              onClick={() => (window.location = discordLink)}
             >
               <Image
                 src={Discord}
@@ -70,9 +72,7 @@ const Header = () => {
             </div>
             <div
               className="w-[40px] mx-4 hover:scale-110 cursor-pointer ease-in duration-300"
-              onClick={() =>
-                (window.location = "https://twitter.com/SolCrackersNFT")
-              }
+              onClick={() => (window.location = twitterLink)}
             >
               <Image
                 src={Twitt}
@@ -86,9 +86,7 @@ const Header = () => {
             </div>
             <div
               className="w-[40px] mx-4 hover:scale-110 cursor-pointer ease-in duration-300"
-              onClick={() =>
-                (window.location = "https://nfts-2.gitbook.io/solcrackers/")
-              }
+              onClick={() => (window.location = whiteListLink)}
             >
               <Image
                 src={whiteList}
