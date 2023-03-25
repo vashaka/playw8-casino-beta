@@ -255,6 +255,7 @@ const CasePage = () => {
                   </div>
                 ) : (
                   <></>
+                  // THIS CODE IS COMMENTED
                   // !selectedItem &&
                   // clicked &&
                   // isOpen && false && (
