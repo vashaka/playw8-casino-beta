@@ -49,13 +49,13 @@ export default function Home() {
     //   .then(() => {
     //     window.location.reload();
     //   });
-    const { error } = supabase.auth
-      .signOut()
-      .then(() => {
-        setUser(null);
-        window.location.reload();
-      })
-      .catch((err) => console.log(err));
+    // const { error } = supabase.auth
+    //   .signOut()
+    //   .then(() => {
+    //     setUser(null);
+    //     window.location.reload();
+    //   })
+    //   .catch((err) => console.log(err));
   }
 
   useEffect(() => {
