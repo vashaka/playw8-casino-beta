@@ -7,6 +7,7 @@ import axios from "axios";
 // THIS SHOULD BE CHANGED
 
 axios.defaults.baseURL = "https://playw8-production.up.railway.app:4001";
+// axios.defaults.baseURL = "https://vashaka.github.io/server";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
