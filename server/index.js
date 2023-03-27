@@ -7,11 +7,8 @@ const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
 // res.setHeader('Access-Control-Allow-Origin', '*');
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+// Up to date
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 const buttonClickSchema = new mongoose.Schema({
