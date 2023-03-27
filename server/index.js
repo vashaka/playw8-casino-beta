@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
+// res.setHeader('Access-Control-Allow-Origin', '*');
 app.use(
   cors({
     origin: "http://localhost:3000/",
