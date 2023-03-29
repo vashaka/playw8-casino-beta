@@ -159,7 +159,7 @@ const Header = () => {
             </div>
           ) : (
             <div className="flex items-center">
-              <p className="text-white">{user.email.slice(0, 12)}...</p>
+              <p className="text-white">{user.user_metadata.full_name}</p>
               <div className="mx-4 w-[50px]">
                 <Image
                   src={prof}
