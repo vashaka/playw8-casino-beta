@@ -245,7 +245,7 @@ export default function Home() {
                     // placeholder="blur"
                   />
                 </div>
-                <h1 className="m-auto ">{prizes[0].title}</h1>
+                <h1 className="m-auto ">{prizes[0]?.title}</h1>
               </div>
             </div>
             <div className="w-full px-8 pt-8">
@@ -261,7 +261,7 @@ export default function Home() {
                     // placeholder="blur"
                   />
                 </div>
-                <h1 className="m-auto ">{prizes[1].title}</h1>
+                <h1 className="m-auto ">{prizes[1]?.title}</h1>
               </div>
             </div>
             <div className="w-full px-8 pt-8">
@@ -277,7 +277,7 @@ export default function Home() {
                     // placeholder="blur"
                   />
                 </div>
-                <h1 className="m-auto ">{prizes[2].title}</h1>
+                <h1 className="m-auto ">{prizes[2]?.title}</h1>
               </div>
             </div>
             <div className="w-full px-8 pt-8">
@@ -293,7 +293,7 @@ export default function Home() {
                     // placeholder="blur"
                   />
                 </div>
-                <h1 className="m-auto ">{prizes[3].title}</h1>
+                <h1 className="m-auto ">{prizes[3]?.title}</h1>
               </div>
             </div>
             <div className="w-full px-8 pt-8">
@@ -309,7 +309,7 @@ export default function Home() {
                     // placeholder="blur"
                   />
                 </div>
-                <h1 className="m-auto ">{prizes[4].title}</h1>
+                <h1 className="m-auto ">{prizes[4]?.title}</h1>
               </div>
             </div>
             <div className="w-full px-8 pt-8">
@@ -325,7 +325,7 @@ export default function Home() {
                     // placeholder="blur"
                   />
                 </div>
-                <h1 className="m-auto ">{prizes[5].title}</h1>
+                <h1 className="m-auto ">{prizes[5]?.title}</h1>
               </div>
             </div>
             <div className="w-full px-8 pt-8 pb-8">
